@@ -1918,3 +1918,24 @@ img {
         transform: translateX(0);
     }
 }
+
+/* =========================
+   サイトマップ 自分自身項目の隙間調整
+========================= */
+
+/* サイトマップ自身のカードだけ、下に1px線が出ないようにする */
+.sitemap-self-item {
+    border: none;
+    margin-bottom: 0;
+}
+
+/* サイトマップ自身の直後にあるトップページ項目の上線を消す */
+.sitemap-self-item+.sitemap-item {
+    border-top: none;
+    margin-top: 0;
+}
+
+/* 念のため、サイトマップ一覧そのものに余計な隙間を作らない */
+.sitemap-list {
+    gap: 0;
+}
