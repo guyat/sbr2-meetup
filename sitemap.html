@@ -49,6 +49,17 @@
                     </p>
 
                     <div class="sitemap-list">
+
+                        <a href="sitemap.html" class="sitemap-item sitemap-self-item" id="sitemapSelfItem">
+                            <div class="sitemap-item-link">
+                                <span class="sitemap-arrow">›</span>
+                                <span class="sitemap-name">サイトマップ</span>
+                            </div>
+                            <p class="sitemap-description" id="sitemapSelfDescription">
+                                ここです。
+                            </p>
+                        </a>
+
                         <a href="index.html" class="sitemap-item">
                             <div class="sitemap-item-link">
                                 <span class="sitemap-arrow">›</span>
@@ -148,6 +159,43 @@
         </footer>
 
     </div>
+    <script>
+        const sitemapSelfItem = document.getElementById('sitemapSelfItem');
+        const sitemapSelfDescription = document.getElementById('sitemapSelfDescription');
+
+        const sitemapSelfMessages = [
+            'ここです。',
+            'はい、ここです。',
+            '・・・ここですよ？',
+            '・・・・・・そうそう、ここなんです。',
+            'だからここですってば！！！',
+            '無限ループって怖くね？'
+        ];
+
+        let sitemapSelfClickCount = 0;
+
+        sitemapSelfItem.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            sitemapSelfClickCount++;
+
+            if (sitemapSelfClickCount >= sitemapSelfMessages.length) {
+                sitemapSelfClickCount = 0;
+            }
+
+            sitemapSelfDescription.textContent = sitemapSelfMessages[sitemapSelfClickCount];
+
+            sitemapSelfItem.classList.remove('is-pushed');
+
+            if (sitemapSelfMessages[sitemapSelfClickCount] === '無限ループって怖くね？') {
+                return;
+            }
+
+            void sitemapSelfItem.offsetWidth;
+
+            sitemapSelfItem.classList.add('is-pushed');
+        });
+    </script>
 </body>
 
 </html>
