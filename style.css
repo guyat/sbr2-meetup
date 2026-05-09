@@ -1939,3 +1939,1388 @@ img {
 .sitemap-list {
     gap: 0;
 }
+
+
+/* =========================
+   常連名簿ページ
+========================= */
+.member-main {
+    padding-bottom: 80px;
+}
+
+.member-section {
+    margin-bottom: 40px;
+}
+
+.member-box {
+    padding: 36px 48px 44px;
+}
+
+.member-title {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.member-lead {
+    margin: 0 0 28px;
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    color: #334155;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.85;
+    text-align: center;
+}
+
+.member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* PC：横長カード */
+.member-card {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr) minmax(260px, 0.9fr);
+    gap: 22px;
+    align-items: stretch;
+    padding: 24px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.66);
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+}
+
+.member-name-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.member-name {
+    margin: 0 0 12px;
+    color: #2f5fd0;
+    font-size: 1.7rem;
+    font-weight: 900;
+    line-height: 1.3;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+.member-title-badge {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 900;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   常連名簿 二つ名バッジ 色セット
+   しっかりグラデ版
+========================= */
+
+/* 白：白ボン風 */
+.badge-white {
+    color: #26384f;
+    background: linear-gradient(135deg, #ffffff 0%, #eef6ff 48%, #d7e6ff 100%);
+    border: 1px solid rgba(120, 150, 190, 0.52);
+}
+
+/* 黒：黒ボン風。真っ黒すぎないようにグレー差を強める */
+.badge-black {
+    color: #ffffff;
+    background: linear-gradient(135deg, #7c8798 0%, #475569 48%, #1f2937 100%);
+    border: 1px solid rgba(90, 105, 130, 0.78);
+}
+
+/* 青：青ボン風 */
+.badge-blue {
+    color: #123b9f;
+    background: linear-gradient(135deg, #f2f7ff 0%, #bcd5ff 48%, #7da8ff 100%);
+    border: 1px solid rgba(60, 105, 200, 0.58);
+}
+
+/* 水：水ボン風 */
+.badge-aqua {
+    color: #005c6b;
+    background: linear-gradient(135deg, #f0fdff 0%, #a9eef7 48%, #63d8e8 100%);
+    border: 1px solid rgba(40, 160, 185, 0.58);
+}
+
+/* 緑：緑ボン風 */
+.badge-green {
+    color: #145f3b;
+    background: linear-gradient(135deg, #f0fff6 0%, #b9f0cf 48%, #72d79d 100%);
+    border: 1px solid rgba(50, 150, 95, 0.58);
+}
+
+/* 黄：黄ボン風 */
+.badge-yellow {
+    color: #754700;
+    background: linear-gradient(135deg, #fffde8 0%, #ffe47f 48%, #ffc83d 100%);
+    border: 1px solid rgba(200, 145, 20, 0.62);
+}
+
+/* 橙：オレンジ系 */
+.badge-orange {
+    color: #813900;
+    background: linear-gradient(135deg, #fff5e8 0%, #ffc986 48%, #ff9f43 100%);
+    border: 1px solid rgba(210, 120, 30, 0.60);
+}
+
+/* 赤：赤ボン風 */
+.badge-red {
+    color: #951b1b;
+    background: linear-gradient(135deg, #fff0f0 0%, #ffb7b7 48%, #ff7a7a 100%);
+    border: 1px solid rgba(200, 70, 70, 0.60);
+}
+
+/* 桃：ピンクボン風 */
+.badge-pink {
+    color: #9d245e;
+    background: linear-gradient(135deg, #fff0f7 0%, #ffc2dd 48%, #ff86bd 100%);
+    border: 1px solid rgba(210, 80, 140, 0.60);
+}
+
+/* 紫：紫系 */
+.badge-purple {
+    color: #4f2fa3;
+    background: linear-gradient(135deg, #f5f0ff 0%, #d7c3ff 48%, #aa89ff 100%);
+    border: 1px solid rgba(120, 85, 200, 0.60);
+}
+
+/* 灰：二つ名募集中・掲載準備中向け */
+.badge-gray {
+    color: #475569;
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 48%, #cbd5e1 100%);
+    border: 1px solid rgba(120, 135, 155, 0.58);
+}
+
+.member-info-area {
+    min-width: 0;
+}
+
+.member-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+}
+
+.member-info-row {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 12px;
+    background: rgba(245, 249, 255, 0.70);
+    border: 1px solid rgba(150, 170, 230, 0.20);
+}
+
+.member-info-row dt {
+    margin: 0;
+    color: #2f5fd0;
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.member-info-row dd {
+    margin: 0;
+    color: #334155;
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.member-comment-area {
+    min-width: 0;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: rgba(232, 242, 255, 0.64);
+    border: 1px solid rgba(121, 162, 255, 0.28);
+}
+
+.member-comment-title {
+    margin: 0 0 10px;
+    color: #2f5fd0;
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.member-comment-text {
+    margin: 0;
+    color: #334155;
+    font-size: 0.94rem;
+    font-weight: 750;
+    line-height: 1.85;
+}
+
+/* =========================
+   常連名簿ページ タブレット
+========================= */
+@media (max-width: 1100px) {
+    .member-box {
+        padding: 32px 28px 36px;
+    }
+
+    .member-card {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .member-comment-area {
+        grid-column: 1 / -1;
+    }
+}
+
+/* =========================
+   常連名簿ページ スマホ
+========================= */
+@media (max-width: 600px) {
+    .member-box {
+        padding: 24px 16px 26px;
+    }
+
+    .member-title {
+        margin-bottom: 12px;
+    }
+
+    .member-lead {
+        margin-bottom: 20px;
+        padding: 16px 14px;
+        font-size: 0.9rem;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+    /* スマホ：縦積みカード */
+    .member-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 18px 14px;
+        border-radius: 18px;
+    }
+
+    .member-name-area {
+        align-items: flex-start;
+    }
+
+    .member-name {
+        margin-bottom: 8px;
+        font-size: 1.35rem;
+        line-height: 1.35;
+    }
+
+    .member-title-badge {
+        font-size: 0.82rem;
+        padding: 5px 12px;
+    }
+
+    .member-info-list {
+        gap: 7px;
+    }
+
+    .member-info-row {
+        grid-template-columns: 1fr;
+        gap: 3px;
+        padding: 10px 12px;
+    }
+
+    .member-info-row dt {
+        font-size: 0.84rem;
+    }
+
+    .member-info-row dd {
+        font-size: 0.88rem;
+        line-height: 1.65;
+    }
+
+    .member-comment-area {
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    .member-comment-title {
+        font-size: 0.94rem;
+    }
+
+    .member-comment-text {
+        font-size: 0.88rem;
+        line-height: 1.75;
+    }
+}
+
+/* =========================
+   常連名簿：中くらいの画面でも縦積みにする
+========================= */
+@media (max-width: 1100px) {
+    .member-card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .member-name-area {
+        align-items: flex-start;
+    }
+
+    .member-comment-area {
+        grid-column: auto;
+    }
+}
+
+/* =========================
+   常連名簿 カラーテーマC
+   ゲーミングポップ
+========================= */
+.member-card {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg,
+            rgba(232, 242, 255, 0.88) 0%,
+            rgba(255, 235, 244, 0.76) 45%,
+            rgba(255, 248, 224, 0.78) 100%);
+    border: 2px solid rgba(120, 150, 220, 0.36);
+    box-shadow:
+        0 10px 24px rgba(60, 90, 160, 0.16),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+}
+
+.member-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 12px;
+    background: linear-gradient(180deg, #5f70e8, #46d6e8, #f28bb6, #ffd36a);
+}
+
+.member-name {
+    color: #2f5fd0;
+    text-shadow:
+        0 2px 0 rgba(255, 255, 255, 0.82),
+        0 4px 10px rgba(60, 90, 180, 0.18);
+}
+
+.member-title-badge {
+    box-shadow: 0 4px 10px rgba(80, 100, 180, 0.18);
+}
+
+.member-info-row {
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(120, 150, 220, 0.28);
+    box-shadow: 0 3px 8px rgba(70, 100, 180, 0.07);
+}
+
+.member-info-row dt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #5f70e8, #46a8e8);
+    font-size: 0.86rem;
+}
+
+.member-info-row dd {
+    color: #26384f;
+}
+
+.member-comment-area {
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.76),
+            rgba(232, 242, 255, 0.70),
+            rgba(255, 235, 244, 0.62));
+    border: 1px solid rgba(120, 150, 220, 0.34);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.38);
+}
+
+.member-comment-title {
+    color: #4d55d8;
+}
+
+.member-comment-title::before {
+    content: "💬";
+    margin-right: 6px;
+}
+
+@media (max-width: 600px) {
+    .member-card::before {
+        width: 8px;
+    }
+
+    .member-card {
+        padding-left: 20px;
+    }
+
+    .member-info-row dt {
+        width: fit-content;
+        min-height: auto;
+    }
+}
+
+/* =========================
+   サイトマップ カード間の点線を消す
+========================= */
+.sitemap-item {
+    border-top: none;
+}
+
+/* =========================
+   サイトマップ カード間を余白で区切る
+========================= */
+.sitemap-item {
+    border-top: none;
+    margin-bottom: 4px;
+}
+
+.sitemap-item:last-child {
+    margin-bottom: 0;
+}
+
+
+
+/* =========================
+   用語集ページ
+========================= */
+.glossary-main {
+    padding-bottom: 80px;
+}
+
+.glossary-section {
+    margin-bottom: 40px;
+}
+
+.glossary-box {
+    padding: 48px 48px 44px;
+}
+
+/* タイトル */
+.glossary-title {
+    display: block;
+    width: 100%;
+    margin: 0px auto 28px;
+    padding: 0;
+    text-align: center;
+}
+
+/* 説明文ボックス */
+.glossary-lead-box {
+    max-width: 940px;
+    margin: 0 auto 24px;
+    padding: 22px 28px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            rgba(245, 249, 255, 0.92),
+            rgba(232, 248, 255, 0.86));
+    border: 1px solid rgba(180, 205, 245, 0.62);
+    box-shadow:
+        0 8px 20px rgba(60, 90, 140, 0.10),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.glossary-lead-text {
+    margin: 0;
+    color: #26384f;
+    font-size: 1.02rem;
+    font-weight: 850;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.glossary-lead-text+.glossary-lead-text {
+    margin-top: 8px;
+}
+
+.glossary-lead-warning {
+    color: #7547c6;
+    font-weight: 950;
+}
+
+/* 更新メモ */
+.glossary-update-note {
+    margin: 0 0 32px;
+    color: #52677f;
+    font-size: 0.96rem;
+    font-weight: 850;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* 用語カード一覧 */
+.glossary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* 1用語カード */
+.glossary-card {
+    position: relative;
+    overflow: hidden;
+    padding: 24px 28px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.72),
+            rgba(232, 242, 255, 0.66),
+            rgba(255, 255, 255, 0.70));
+    border: 1px solid rgba(150, 180, 235, 0.36);
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.10),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.46);
+}
+
+.glossary-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 8px;
+    background: linear-gradient(180deg, #5f70e8, #46d6e8, #a783ff);
+}
+
+/* カード内の行 */
+.glossary-row {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    padding: 10px 0;
+}
+
+.glossary-row+.glossary-row {
+    border-top: 1px dashed rgba(86, 130, 214, 0.24);
+}
+
+.glossary-term-row {
+    padding-top: 0;
+    align-items: center;
+}
+
+.glossary-summary-row {
+    padding-bottom: 0;
+}
+
+/* 用語 / 読み方 / 概要 */
+.glossary-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 108px;
+    max-width: 100%;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: #6547c8;
+    background: rgba(243, 235, 255, 0.88);
+    border: 1px solid rgba(150, 120, 220, 0.16);
+    font-size: 0.92rem;
+    font-weight: 950;
+    line-height: 1.2;
+}
+
+/* 用語名 */
+.glossary-term {
+    margin: 0;
+    color: #26384f;
+    font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+    font-weight: 950;
+    line-height: 1.35;
+    letter-spacing: 0.03em;
+    overflow-wrap: anywhere;
+}
+
+/* 読み方 */
+.glossary-reading {
+    margin: 0;
+    color: #26384f;
+    font-size: 1.02rem;
+    font-weight: 850;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+
+/* 概要 */
+.glossary-summary {
+    margin: 0;
+    color: #334155;
+    font-size: 0.98rem;
+    font-weight: 750;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+.glossary-summary strong {
+    color: #d93030;
+    font-weight: 950;
+}
+
+/* 用語名リンク */
+.glossary-term-link {
+    color: #2f5fd0;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(47, 95, 208, 0.28);
+}
+
+.glossary-term-link:hover {
+    color: #7b49d8;
+    border-bottom-color: rgba(123, 73, 216, 0.65);
+}
+
+/* Excelの色付き再現用 */
+.glossary-red {
+    color: #d93030;
+    font-weight: 950;
+}
+
+.glossary-blue {
+    color: #2f5fd0;
+    font-weight: 950;
+}
+
+.glossary-purple {
+    color: #7b49d8;
+    font-weight: 950;
+}
+
+.glossary-green {
+    color: #27845d;
+    font-weight: 950;
+}
+
+.glossary-yellow-marker {
+    background: linear-gradient(transparent 58%, rgba(255, 229, 110, 0.72) 58%);
+    font-weight: 950;
+}
+
+.glossary-sp-br {
+    display: none;
+}
+
+/* =========================
+   用語集ページ タブレット
+========================= */
+@media (max-width: 1100px) {
+    .glossary-box {
+        padding: 36px 28px 36px;
+    }
+
+    .glossary-row {
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .glossary-label {
+        width: 96px;
+    }
+}
+
+/* =========================
+   用語集ページ スマホ
+========================= */
+@media (max-width: 600px) {
+    .glossary-box {
+        padding: 28px 16px 28px;
+    }
+
+    .glossary-title {
+        margin: 12px auto 20px;
+    }
+
+    .glossary-lead-box {
+        padding: 16px 14px;
+        border-radius: 16px;
+        margin-bottom: 18px;
+    }
+
+    .glossary-lead-text {
+        text-align: left;
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+
+    .glossary-update-note {
+        margin-bottom: 22px;
+        text-align: left;
+        font-size: 0.84rem;
+    }
+
+    .glossary-list {
+        gap: 14px;
+    }
+
+    .glossary-card {
+        padding: 18px 14px 18px 20px;
+        border-radius: 18px;
+    }
+
+    .glossary-card::before {
+        width: 6px;
+    }
+
+    .glossary-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 12px 0;
+    }
+
+    .glossary-label {
+        width: fit-content;
+        min-width: 78px;
+        padding: 6px 11px;
+        font-size: 0.84rem;
+    }
+
+    .glossary-term {
+        font-size: 1.32rem;
+    }
+
+    .glossary-reading,
+    .glossary-summary {
+        font-size: 0.88rem;
+        line-height: 1.78;
+    }
+
+    .glossary-sp-br {
+        display: inline;
+    }
+}
+
+
+/* =========================
+   大会・イベント情報ページ
+========================= */
+.event-main {
+    padding-bottom: 80px;
+}
+
+.event-section {
+    margin-bottom: 40px;
+}
+
+.event-box {
+    padding: 48px 48px 44px;
+}
+
+/* タイトル */
+.event-title {
+    display: block;
+    width: 100%;
+    margin: 0 auto 28px;
+    padding: 0;
+    text-align: center;
+}
+
+/* 説明文 */
+.event-lead-box {
+    max-width: 980px;
+    margin: 0 auto 20px;
+    padding: 22px 28px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            rgba(245, 249, 255, 0.92),
+            rgba(232, 248, 255, 0.86));
+    border: 1px solid rgba(180, 205, 245, 0.62);
+    box-shadow:
+        0 8px 20px rgba(60, 90, 140, 0.10),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.event-lead-text {
+    margin: 0;
+    color: #26384f;
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1.9;
+}
+
+/* 最終更新日・凡例 */
+.event-meta-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 980px;
+    margin: 0 auto 30px;
+    padding: 14px 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.56);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.event-meta-text {
+    margin: 0;
+    color: #334155;
+    font-size: 0.96rem;
+    font-weight: 850;
+}
+
+.event-meta-text strong {
+    color: #2f5fd0;
+    font-weight: 950;
+}
+
+.event-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.event-legend-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: #334155;
+    font-size: 0.86rem;
+    font-weight: 900;
+    line-height: 1.2;
+    border: 1px solid rgba(120, 150, 120, 0.20);
+}
+
+.event-legend-offline {
+    background: rgba(217, 234, 211, 0.92);
+}
+
+.event-legend-ongoing {
+    background: rgba(255, 226, 184, 0.92);
+}
+
+/* セクション */
+.event-list-section {
+    margin-bottom: 28px;
+}
+
+.event-section-title {
+    margin: 0 0 18px;
+    color: #4d55d8;
+    font-size: 1.55rem;
+    font-weight: 950;
+    line-height: 1.4;
+    text-align: center;
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.65);
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* イベントカード */
+.event-card {
+    position: relative;
+    overflow: hidden;
+    padding: 24px 26px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.72),
+            rgba(232, 242, 255, 0.66),
+            rgba(255, 255, 255, 0.70));
+    border: 1px solid rgba(150, 180, 235, 0.36);
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.10),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.46);
+}
+
+.event-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 8px;
+    background: linear-gradient(180deg, #5f70e8, #46d6e8, #a783ff);
+}
+
+/* オフラインイベント：薄抹茶色 */
+.event-card-offline {
+    background:
+        linear-gradient(135deg,
+            rgba(217, 234, 211, 0.88),
+            rgba(240, 249, 235, 0.78),
+            rgba(255, 255, 255, 0.72));
+    border-color: rgba(114, 155, 98, 0.36);
+}
+
+.event-card-offline::before {
+    background: linear-gradient(180deg, #7db36f, #b7d98a, #e2f2c5);
+}
+
+/* 開催中イベント：薄いオレンジ色 */
+.event-card-ongoing {
+    background:
+        linear-gradient(135deg,
+            rgba(255, 226, 184, 0.92),
+            rgba(255, 243, 220, 0.82),
+            rgba(255, 255, 255, 0.74));
+    border-color: rgba(220, 142, 68, 0.36);
+}
+
+.event-card-ongoing::before {
+    background: linear-gradient(180deg, #f0a05f, #ffd36a, #fff0bd);
+}
+
+.event-card-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.event-card-title {
+    margin: 0;
+    color: #26384f;
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    font-weight: 950;
+    line-height: 1.35;
+    letter-spacing: 0.03em;
+    overflow-wrap: anywhere;
+}
+
+.event-status-badge {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: #334155;
+    font-size: 0.82rem;
+    font-weight: 950;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.event-status-offline {
+    background: rgba(217, 234, 211, 0.98);
+    border: 1px solid rgba(114, 155, 98, 0.38);
+}
+
+.event-status-ongoing {
+    background: rgba(255, 226, 184, 0.98);
+    border: 1px solid rgba(220, 142, 68, 0.38);
+}
+
+/* イベント情報 */
+.event-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+}
+
+.event-info-row {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 12px;
+    align-items: stretch;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(150, 170, 230, 0.24);
+}
+
+.event-info-row dt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #5f70e8, #46a8e8);
+    font-size: 0.88rem;
+    font-weight: 950;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.event-info-row dd {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: #334155;
+    font-size: 0.94rem;
+    font-weight: 800;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+
+/* 過去イベント折りたたみ */
+.event-past-details {
+    margin-top: 30px;
+}
+
+.event-past-summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 22px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            rgba(232, 242, 255, 0.86),
+            rgba(255, 235, 244, 0.72));
+    border: 1px solid rgba(120, 150, 220, 0.34);
+    color: #334155;
+    box-shadow: 0 8px 22px rgba(60, 90, 160, 0.12);
+}
+
+.event-past-summary::-webkit-details-marker {
+    display: none;
+}
+
+.event-past-summary::before {
+    content: "＋";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #5f70e8, #46a8e8);
+    font-size: 1.2rem;
+    font-weight: 950;
+    line-height: 1;
+}
+
+.event-past-details[open] .event-past-summary::before {
+    content: "－";
+}
+
+.event-past-summary-main {
+    color: #4d55d8;
+    font-size: 1.35rem;
+    font-weight: 950;
+    line-height: 1.35;
+}
+
+.event-past-summary-sub {
+    color: #52677f;
+    font-size: 0.9rem;
+    font-weight: 850;
+}
+
+.event-past-list {
+    margin-top: 18px;
+}
+
+/* =========================
+   大会・イベント情報ページ タブレット
+========================= */
+@media (max-width: 1100px) {
+    .event-box {
+        padding: 36px 28px 36px;
+    }
+
+    .event-info-row {
+        grid-template-columns: 128px minmax(0, 1fr);
+    }
+}
+
+/* =========================
+   大会・イベント情報ページ スマホ
+========================= */
+@media (max-width: 600px) {
+    .event-box {
+        padding: 28px 16px 28px;
+    }
+
+    .event-title {
+        margin: 12px auto 20px;
+    }
+
+    .event-lead-box {
+        padding: 16px 14px;
+        border-radius: 16px;
+    }
+
+    .event-lead-text {
+        font-size: 0.88rem;
+        line-height: 1.8;
+    }
+
+    .event-meta-box {
+        align-items: stretch;
+        margin-bottom: 24px;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .event-meta-text {
+        font-size: 0.88rem;
+    }
+
+    .event-legend {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .event-legend-item {
+        width: 100%;
+    }
+
+    .event-section-title {
+        font-size: 1.22rem;
+        text-align: left;
+    }
+
+    .event-list {
+        gap: 14px;
+    }
+
+    .event-card {
+        padding: 18px 14px 18px 20px;
+        border-radius: 18px;
+    }
+
+    .event-card::before {
+        width: 6px;
+    }
+
+    .event-card-heading {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .event-card-title {
+        font-size: 1.28rem;
+    }
+
+    .event-info-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 10px;
+    }
+
+    .event-info-row dt {
+        width: fit-content;
+        padding: 6px 11px;
+        font-size: 0.84rem;
+    }
+
+    .event-info-row dd {
+        font-size: 0.88rem;
+        line-height: 1.72;
+    }
+
+    .event-past-summary {
+        justify-content: flex-start;
+        padding: 16px 14px;
+    }
+
+    .event-past-summary-main {
+        font-size: 1.08rem;
+    }
+
+    .event-past-summary-sub {
+        width: 100%;
+        padding-left: 40px;
+        font-size: 0.82rem;
+    }
+}
+
+
+/* =========================
+   大会・イベント情報ページ 追加調整
+   - リンクを通常テキストリンク表示へ変更
+   - URLリンクはHTML側でURL文字列を直接表示
+   - PC横長時のラベル肥大化を防止
+========================= */
+.event-info-row {
+    align-items: start;
+}
+
+.event-info-row dt {
+    align-self: start;
+    min-height: 0;
+    height: auto;
+}
+
+.event-info-row dd {
+    display: block;
+    align-items: initial;
+    min-width: 0;
+}
+
+.event-info-link {
+    display: inline;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border-radius: 0;
+    color: #2f5fd0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-weight: 900;
+    line-height: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.event-info-link:hover {
+    color: #7b49d8;
+    background: transparent;
+    transform: none;
+    opacity: 0.86;
+}
+
+.event-info-row dd .event-info-link+.event-info-link {
+    margin-top: 0;
+}
+
+.event-info-row dd br+.event-info-link,
+.event-info-row dd .event-info-link+br {
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+    .event-info-link {
+        padding: 0;
+        font-size: inherit;
+    }
+}
+
+/* =========================
+   大会・イベント情報ページ バッジ濃色化
+   - オフライン / 開催中のバッジを背景より目立たせる
+========================= */
+.event-legend-offline,
+.event-status-offline {
+    color: #23441f;
+    background: linear-gradient(135deg, rgba(166, 213, 143, 0.98), rgba(126, 183, 105, 0.98));
+    border: 1px solid rgba(75, 128, 58, 0.58);
+    box-shadow: 0 3px 9px rgba(75, 128, 58, 0.16);
+}
+
+.event-legend-ongoing,
+.event-status-ongoing {
+    color: #6a3700;
+    background: linear-gradient(135deg, rgba(255, 197, 103, 0.98), rgba(255, 161, 73, 0.98));
+    border: 1px solid rgba(201, 105, 24, 0.58);
+    box-shadow: 0 3px 9px rgba(201, 105, 24, 0.16);
+}
+
+/* =========================
+   大会・イベント情報ページ
+   過去大会・イベント見出しを目立たせる
+========================= */
+.event-past-summary {
+    background:
+        linear-gradient(135deg,
+            rgba(95, 112, 232, 0.96) 0%,
+            rgba(70, 168, 232, 0.92) 48%,
+            rgba(167, 131, 255, 0.94) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.72);
+    box-shadow:
+        0 10px 24px rgba(60, 90, 180, 0.24),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.34);
+}
+
+.event-past-summary:hover {
+    background:
+        linear-gradient(135deg,
+            rgba(80, 96, 220, 1) 0%,
+            rgba(50, 150, 220, 0.98) 48%,
+            rgba(145, 105, 245, 1) 100%);
+}
+
+.event-past-summary-main {
+    color: #ffffff;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.24),
+        0 0 10px rgba(255, 255, 255, 0.22);
+}
+
+.event-past-summary-main::before {
+    background: rgba(255, 255, 255, 0.24);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+}
+
+.event-past-summary-sub {
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
+}
+
+/* 開いた状態だと少し色味を変えて「ここから過去大会」と分かりやすくする */
+.event-past-details[open] .event-past-summary {
+    background:
+        linear-gradient(135deg,
+            rgba(123, 73, 216, 0.98) 0%,
+            rgba(95, 112, 232, 0.96) 48%,
+            rgba(70, 214, 232, 0.92) 100%);
+    margin-bottom: 18px;
+}
+
+/* =========================
+   大会・イベント情報ページ
+   見出し調整：動かさない＋予定見出しを少し強調
+========================= */
+
+/* 過去大会・イベントの開閉ブロック：ホバー時に動かさない */
+.event-past-summary:hover {
+    transform: none;
+}
+
+/* 念のため、通常時も位置を固定 */
+.event-past-summary {
+    transform: none;
+}
+
+/* 予定大会・イベントの見出しを少しだけ目立たせる */
+.event-section-title {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 22px;
+    padding: 10px 28px;
+    border-radius: 999px;
+    color: #ffffff;
+    background:
+        linear-gradient(135deg,
+            rgba(95, 112, 232, 0.92) 0%,
+            rgba(70, 168, 232, 0.88) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    box-shadow:
+        0 8px 18px rgba(60, 90, 180, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.26);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.20);
+}
+
+/* スマホでは横幅いっぱい寄りにして見やすく */
+@media (max-width: 600px) {
+    .event-section-title {
+        width: 100%;
+        padding: 10px 16px;
+        font-size: 1.15rem;
+        text-align: center;
+    }
+}
