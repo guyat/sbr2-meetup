@@ -3716,22 +3716,24 @@ img {
     opacity: 0.92;
 }
 
-/* 固定ヘッダーぶん、ページ内リンクの到着位置を下げる */
+/* 固定ヘッダーぶん、ページ内リンクの到着位置を調整する */
+/* scroll-padding-top と scroll-margin-top を両方大きくすると下に行きすぎるため、
+   html側は0にして、[id]側だけで調整する */
 html {
-    scroll-padding-top: 150px;
+    scroll-padding-top: 0;
 }
 
 [id] {
-    scroll-margin-top: 150px;
+    scroll-margin-top: 110px;
 }
 
-/* スマホはヘッダーが高いので少し多めに空ける */
+/* スマホはヘッダーが少し高くなるので少しだけ多め */
 @media (max-width: 600px) {
     html {
-        scroll-padding-top: 190px;
+        scroll-padding-top: 0;
     }
 
     [id] {
-        scroll-margin-top: 190px;
+        scroll-margin-top: 135px;
     }
 }
