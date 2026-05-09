@@ -3324,3 +3324,376 @@ img {
         text-align: center;
     }
 }
+
+/* =========================
+   ページ内検索ページ
+========================= */
+.search-main {
+    padding-bottom: 80px;
+}
+
+.search-section {
+    margin-bottom: 40px;
+}
+
+.search-box {
+    padding: 36px 48px 44px;
+}
+
+.search-title {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.search-lead {
+    margin: 0 0 28px;
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    color: #334155;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.85;
+    text-align: center;
+}
+
+.search-form-area {
+    margin-bottom: 20px;
+    padding: 22px 24px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            rgba(245, 249, 255, 0.92),
+            rgba(232, 248, 255, 0.86));
+    border: 1px solid rgba(180, 205, 245, 0.62);
+    box-shadow:
+        0 8px 20px rgba(60, 90, 140, 0.10),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.search-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #2f5fd0;
+    font-size: 1.05rem;
+    font-weight: 950;
+}
+
+.search-input-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.site-search-input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 2px solid rgba(95, 112, 232, 0.34);
+    background: rgba(255, 255, 255, 0.96);
+    color: #26384f;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.site-search-input:focus {
+    outline: none;
+    border-color: rgba(70, 168, 232, 0.95);
+    box-shadow: 0 0 0 4px rgba(70, 168, 232, 0.18);
+}
+
+.site-search-clear {
+    flex: 0 0 auto;
+    padding: 0 22px;
+    border: none;
+    border-radius: 14px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #5f70e8, #46a8e8);
+    font-size: 0.98rem;
+    font-weight: 950;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(70, 100, 220, 0.24);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.site-search-clear:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+.search-note {
+    margin: 12px 0 0;
+    color: #52677f;
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1.7;
+}
+
+.search-note strong {
+    color: #2f5fd0;
+    font-weight: 950;
+}
+
+.search-status-area {
+    margin-bottom: 18px;
+}
+
+.search-status {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 999px;
+    background: rgba(232, 242, 255, 0.72);
+    border: 1px solid rgba(121, 162, 255, 0.36);
+    color: #334155;
+    font-size: 0.95rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.search-result-card {
+    position: relative;
+    overflow: hidden;
+    padding: 22px 24px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.74),
+            rgba(232, 242, 255, 0.68),
+            rgba(255, 255, 255, 0.72));
+    border: 1px solid rgba(150, 180, 235, 0.36);
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.10),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.46);
+}
+
+.search-result-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 8px;
+    background: linear-gradient(180deg, #5f70e8, #46d6e8, #a783ff);
+}
+
+.search-result-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-left: 4px;
+}
+
+.search-result-page,
+.search-result-section {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 950;
+    line-height: 1.3;
+}
+
+.search-result-page {
+    color: #ffffff;
+    background: linear-gradient(135deg, #5f70e8, #46a8e8);
+}
+
+.search-result-section {
+    color: #4f2fa3;
+    background: rgba(243, 235, 255, 0.88);
+    border: 1px solid rgba(150, 120, 220, 0.20);
+}
+
+.search-result-title {
+    margin: 0 0 10px;
+    color: #26384f;
+    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+    font-weight: 950;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.search-result-title a {
+    color: #26384f;
+    text-decoration: none;
+}
+
+.search-result-title a:hover {
+    color: #2f5fd0;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.search-result-snippet {
+    margin: 0 0 14px;
+    color: #334155;
+    font-size: 0.96rem;
+    font-weight: 750;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+.search-result-snippet mark,
+.search-result-title mark {
+    color: inherit;
+    background: linear-gradient(transparent 58%, rgba(255, 229, 110, 0.78) 58%);
+    font-weight: 950;
+    padding: 0 2px;
+}
+
+.search-result-link {
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #5f70e8, #46a8e8);
+    font-size: 0.92rem;
+    font-weight: 950;
+    box-shadow: 0 5px 12px rgba(70, 100, 220, 0.20);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.search-result-link:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+.search-result-link::after {
+    content: " ＞";
+}
+
+.search-empty-message {
+    padding: 28px 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.58);
+    border: 2px dashed rgba(120, 150, 220, 0.34);
+    color: #334155;
+    font-size: 1rem;
+    font-weight: 850;
+    line-height: 1.85;
+    text-align: center;
+}
+
+/* =========================
+   ページ内検索ページ スマホ
+========================= */
+@media (max-width: 600px) {
+    .search-box {
+        padding: 24px 16px 26px;
+    }
+
+    .search-title {
+        margin-bottom: 12px;
+    }
+
+    .search-lead {
+        margin-bottom: 20px;
+        padding: 16px 14px;
+        font-size: 0.9rem;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+    .search-form-area {
+        padding: 18px 14px;
+        border-radius: 16px;
+    }
+
+    .search-input-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .site-search-input {
+        padding: 12px 14px;
+        font-size: 0.94rem;
+    }
+
+    .site-search-clear {
+        width: 100%;
+        padding: 12px 16px;
+    }
+
+    .search-note {
+        font-size: 0.84rem;
+    }
+
+    .search-status {
+        border-radius: 16px;
+        font-size: 0.86rem;
+    }
+
+    .search-result-card {
+        padding: 18px 14px 18px 20px;
+        border-radius: 18px;
+    }
+
+    .search-result-card::before {
+        width: 6px;
+    }
+
+    .search-result-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-result-page,
+    .search-result-section {
+        font-size: 0.8rem;
+    }
+
+    .search-result-title {
+        font-size: 1.16rem;
+    }
+
+    .search-result-snippet {
+        font-size: 0.88rem;
+        line-height: 1.75;
+    }
+
+    .search-result-link {
+        width: 100%;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .search-empty-message {
+        padding: 22px 14px;
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+}
+
+
+/* =========================
+   ページ内検索ページ 追加調整
+   - 検索ステータスと結果を1ブロック化
+   - 初期状態では何も表示しない
+========================= */
+.search-status-area {
+    display: none;
+}
+
+.search-result-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.search-status:empty {
+    display: none;
+}
+
+.search-results:empty {
+    display: none;
+}

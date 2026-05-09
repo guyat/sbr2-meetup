@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ページ内検索 | SBR2交流会 特設サイト</title>
-    <meta name="description" content="SBR2交流会特設サイトのページ内検索ページです。現在準備中です。">
+    <meta name="description" content="SBR2交流会特設サイト内のページを検索できます。">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -39,10 +39,36 @@
         </header>
 
         <!-- メイン -->
-        <main class="main-content coming-soon-main">
-            <section class="coming-soon-section">
-                <div class="content-box coming-soon-box">
-                    <h1 class="coming-soon-title">鋭意製作中...!!</h1>
+        <main class="main-content search-main">
+            <section class="search-section">
+                <div class="content-box search-box">
+                    <h1 class="section-title search-title">ページ内検索</h1>
+
+                    <p class="search-lead">
+                        SBR2交流会 特設サイト内のページを検索できます。<br>
+                        検索した言葉が、どのページのどのあたりにあるかを表示します。
+                    </p>
+
+                    <div class="search-form-area">
+                        <label class="search-label" for="siteSearchInput">検索したい言葉を入力</label>
+
+                        <div class="search-input-row">
+                            <input type="search" id="siteSearchInput" class="site-search-input"
+                                placeholder="例：起爆パンチ、バグ" autocomplete="off">
+                            <button type="button" id="siteSearchClear" class="site-search-clear">
+                                クリア
+                            </button>
+                        </div>
+
+                        <p class="search-note">
+                            スペースで区切ると、複数の言葉を含むページを検索できます。
+                        </p>
+                    </div>
+
+                    <div class="search-result-box">
+                        <p id="searchStatus" class="search-status"></p>
+                        <div id="searchResults" class="search-results"></div>
+                    </div>
                 </div>
             </section>
         </main>
@@ -63,6 +89,306 @@
         </footer>
 
     </div>
+
+    <script>
+        const searchPages = [
+            { title: "トップページ", url: "index.html" },
+            { title: "交流会ルール", url: "rule.html" },
+            { title: "戦力均衡ペア戦プチ大会", url: "pair.html" },
+            { title: "サイトマップ", url: "sitemap.html" },
+            { title: "常連名簿", url: "devotedmember.html" },
+            { title: "誘爆技講座", url: "combo.html" },
+            { title: "名場面・珍場面集", url: "fgplay.html" },
+            { title: "よくある質問 FAQ", url: "faq.html" },
+            { title: "大会・イベント情報", url: "event.html" },
+            { title: "用語集", url: "glossary.html" }
+        ];
+
+        const input = document.getElementById("siteSearchInput");
+        const clearButton = document.getElementById("siteSearchClear");
+        const statusText = document.getElementById("searchStatus");
+        const resultsArea = document.getElementById("searchResults");
+
+        let searchIndex = [];
+        let isReady = false;
+
+        function normalizeText(text) {
+            return text
+                .toString()
+                .toLowerCase()
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function escapeHtml(text) {
+            return text
+                .toString()
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function highlightText(text, keywords) {
+            let escaped = escapeHtml(text);
+
+            keywords.forEach(keyword => {
+                if (!keyword) return;
+
+                const safeKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+                const regex = new RegExp(`(${safeKeyword})`, "gi");
+                escaped = escaped.replace(regex, "<mark>$1</mark>");
+            });
+
+            return escaped;
+        }
+
+        function createSnippet(text, keywords) {
+            const cleanText = text.replace(/\s+/g, " ").trim();
+            const normalized = normalizeText(cleanText);
+
+            let firstIndex = -1;
+
+            keywords.forEach(keyword => {
+                const index = normalized.indexOf(keyword);
+                if (index !== -1 && (firstIndex === -1 || index < firstIndex)) {
+                    firstIndex = index;
+                }
+            });
+
+            if (firstIndex === -1) {
+                return cleanText.slice(0, 120) + (cleanText.length > 120 ? "..." : "");
+            }
+
+            const start = Math.max(firstIndex - 45, 0);
+            const end = Math.min(start + 150, cleanText.length);
+
+            return (start > 0 ? "..." : "") + cleanText.slice(start, end) + (end < cleanText.length ? "..." : "");
+        }
+
+        function getSectionTitleFromElement(element) {
+            const heading = element.querySelector("h1, h2, h3, h4, summary");
+            if (heading && heading.textContent.trim()) {
+                return heading.textContent.trim();
+            }
+
+            return "本文";
+        }
+
+        function getSectionIdFromElement(element) {
+            const ownId = element.id;
+            if (ownId) return ownId;
+
+            const headingWithId = element.querySelector("h1[id], h2[id], h3[id], h4[id], summary[id]");
+            if (headingWithId) return headingWithId.id;
+
+            return "";
+        }
+
+        function collectSections(page, doc) {
+                const main = doc.querySelector("main");
+
+                if (!main) {
+                    return [];
+                }
+
+                main.querySelectorAll("script, style, noscript").forEach(el => el.remove());
+
+                /*
+                    親要素と子要素を両方拾うと、同じ文章が重複して検索結果に出るため、
+                    ここでは「実際の1カード・1項目」になりやすい要素だけを検索対象にする。
+                */
+                const sectionCandidates = main.querySelectorAll(
+                    ".rule-basic-box, .rule-detail-card, " +
+                    ".pair-intro-box, .pair-entry-box, .pair-basic-box, .pair-rule-card, .pair-example-card, .pair-win-box, .pair-message-box, " +
+                    ".combo-video-card, .combo-note-box, " +
+                    ".faq-item, .faq-note-box, " +
+                    ".member-card, " +
+                    ".glossary-card, " +
+                    ".event-card, " +
+                    ".sitemap-item, " +
+                    ".coming-soon-box, " +
+                    ".intro-box"
+                );
+
+                const sections = [];
+                const seenTexts = new Set();
+
+                sectionCandidates.forEach((element, index) => {
+                    const text = element.textContent.replace(/\s+/g, " ").trim();
+
+                    if (!text) return;
+                    if (text.length < 8) return;
+
+                    /*
+                        完全に同じ文章のカードは1回だけ登録する。
+                        これで同一ページ内の二重表示を防ぐ。
+                    */
+                    const duplicateKey = `${page.url}::${text}`;
+                    if (seenTexts.has(duplicateKey)) return;
+                    seenTexts.add(duplicateKey);
+
+                    const sectionTitle = getSectionTitleFromElement(element);
+                    const sectionId = getSectionIdFromElement(element);
+                    const linkUrl = sectionId ? `${page.url}#${sectionId}` : page.url;
+
+                    sections.push({
+                        pageTitle: page.title,
+                        pageUrl: page.url,
+                        sectionTitle: sectionTitle,
+                        sectionUrl: linkUrl,
+                        text: text,
+                        normalizedText: normalizeText(`${page.title} ${sectionTitle} ${text}`),
+                        sectionOrder: index
+                    });
+                });
+
+                /*
+                    カード型の要素がないページだけ、main全体を1件として登録する。
+                    sectionやcontent-boxを普段から拾わないことで、重複を防ぐ。
+                */
+                if (sections.length === 0) {
+                    const text = main.textContent.replace(/\s+/g, " ").trim();
+
+                    if (text) {
+                        sections.push({
+                            pageTitle: page.title,
+                            pageUrl: page.url,
+                            sectionTitle: "本文",
+                            sectionUrl: page.url,
+                            text: text,
+                            normalizedText: normalizeText(`${page.title} 本文 ${text}`),
+                            sectionOrder: 0
+                        });
+                    }
+                }
+
+                return sections;
+            }
+
+        async function loadSearchIndex() {
+            const loadedSections = [];
+
+            for (const page of searchPages) {
+                try {
+                    const response = await fetch(page.url);
+
+                    if (!response.ok) {
+                        throw new Error(`${page.url} の読み込みに失敗しました`);
+                    }
+
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+
+                    const sections = collectSections(page, doc);
+                    loadedSections.push(...sections);
+                } catch (error) {
+                    console.warn(error);
+                }
+            }
+
+            searchIndex = loadedSections;
+            isReady = true;
+
+            statusText.textContent = "";
+            renderResults();
+        }
+
+        function renderResults() {
+            const rawQuery = input.value.trim();
+            const keywords = normalizeText(rawQuery).split(" ").filter(Boolean);
+
+            if (!isReady) {
+                resultsArea.innerHTML = `
+                    <div class="search-empty-message">
+                        検索データを読み込み中です。
+                    </div>
+                `;
+                return;
+            }
+
+            if (keywords.length === 0) {
+                statusText.textContent = "";
+                resultsArea.innerHTML = "";
+                return;
+            }
+
+            const matched = searchIndex
+                .filter(item => keywords.every(keyword => item.normalizedText.includes(keyword)))
+                .map(item => {
+                    const firstKeywordIndex = keywords
+                        .map(keyword => item.normalizedText.indexOf(keyword))
+                        .filter(index => index >= 0)
+                        .sort((a, b) => a - b)[0];
+
+                    return {
+                        ...item,
+                        score: firstKeywordIndex
+                    };
+                })
+                .sort((a, b) => {
+                    if (a.pageTitle === b.pageTitle) {
+                        return a.sectionOrder - b.sectionOrder;
+                    }
+
+                    return a.score - b.score;
+                });
+
+            if (matched.length === 0) {
+                statusText.textContent = `「${rawQuery}」の検索結果：0件`;
+
+                resultsArea.innerHTML = `
+                    <div class="search-empty-message">
+                        見つかりませんでした。<br>
+                        キーワードを短くするか、別の言葉で検索してみてください。
+                    </div>
+                `;
+                return;
+            }
+
+            statusText.textContent = `「${rawQuery}」の検索結果：${matched.length}件`;
+
+            resultsArea.innerHTML = matched.map(item => {
+                const snippet = createSnippet(item.text, keywords);
+
+                return `
+                    <article class="search-result-card">
+                        <div class="search-result-meta">
+                            <span class="search-result-page">${escapeHtml(item.pageTitle)}</span>
+                            <span class="search-result-section">このあたり：${escapeHtml(item.sectionTitle)}</span>
+                        </div>
+
+                        <h2 class="search-result-title">
+                            <a href="${escapeHtml(item.sectionUrl)}">
+                                ${escapeHtml(item.pageTitle)} ＞ ${highlightText(item.sectionTitle, keywords)}
+                            </a>
+                        </h2>
+
+                        <p class="search-result-snippet">
+                            ${highlightText(snippet, keywords)}
+                        </p>
+
+                        <a class="search-result-link" href="${escapeHtml(item.sectionUrl)}">
+                            この部分を見る
+                        </a>
+                    </article>
+                `;
+            }).join("");
+        }
+
+        input.addEventListener("input", renderResults);
+
+        clearButton.addEventListener("click", () => {
+                input.value = "";
+                input.focus();
+                statusText.textContent = "";
+                resultsArea.innerHTML = "";
+            }); 
+
+        loadSearchIndex();
+    </script>
 </body>
 
 </html>
