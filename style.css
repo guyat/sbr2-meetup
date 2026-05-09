@@ -3697,3 +3697,41 @@ img {
 .search-results:empty {
     display: none;
 }
+
+/* =========================
+   ページ内検索ページ 追加調整
+   - 結果ボタンをホバーで動かさない
+   - ボタン色変更
+   - ページ内リンク先が固定ヘッダーに隠れないようにする
+========================= */
+
+/* 「この部分を見る」ボタン */
+.search-result-link {
+    background: linear-gradient(135deg, #d85ca8, #ff8a80);
+}
+
+/* ホバーしても1px動かさない */
+.search-result-link:hover {
+    transform: none;
+    opacity: 0.92;
+}
+
+/* 固定ヘッダーぶん、ページ内リンクの到着位置を下げる */
+html {
+    scroll-padding-top: 150px;
+}
+
+[id] {
+    scroll-margin-top: 150px;
+}
+
+/* スマホはヘッダーが高いので少し多めに空ける */
+@media (max-width: 600px) {
+    html {
+        scroll-padding-top: 190px;
+    }
+
+    [id] {
+        scroll-margin-top: 190px;
+    }
+}
