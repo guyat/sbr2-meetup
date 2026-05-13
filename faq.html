@@ -18,21 +18,40 @@
 
         <!-- ヘッダー -->
         <header class="site-header">
-            <div class="header-inner">
+            <div class="header-inner header-inner-menu">
                 <div class="site-logo">
                     <a href="index.html">SBR2交流会 特設サイト</a>
                 </div>
-
-                <nav class="header-nav" aria-label="ヘッダーナビゲーション">
-                    <ul class="header-nav-list">
+        
+                <nav class="header-nav header-menu-nav" aria-label="ヘッダーナビゲーション">
+                    <ul class="header-nav-list header-menu-list">
                         <li><a href="sitemap.html">サイトマップ</a></li>
-                        <li><a href="rule.html">交流会ルール</a></li>
-                        <li><a href="pair.html">戦力均衡ペア戦プチ大会</a></li>
-                        <li><a href="devotedmember.html">常連名簿</a></li>
-                        <li><a href="combo.html">誘爆技講座</a></li>
-                        <li><a href="fgplay.html">名場面・珍場面集</a></li>
-                        <li><a href="faq.html">よくある質問(FAQ)</a></li>
-                        <li><a href="search.html">ページ内検索</a></li>
+        
+                        <li class="header-menu-item">
+                            <details class="header-dropdown">
+                                <summary>ルール</summary>
+                                <div class="header-dropdown-panel">
+                                    <a href="rule.html">交流会ルール</a>
+                                    <a href="pair.html">戦力均衡ペア戦プチ大会ルール</a>
+                                </div>
+                            </details>
+                        </li>
+        
+                        <li class="header-menu-item">
+                            <details class="header-dropdown">
+                                <summary>その他コンテンツ</summary>
+                                <div class="header-dropdown-panel">
+                                    <a href="devotedmember.html">常連名簿</a>
+                                    <a href="combo.html">誘爆技講座</a>
+                                    <a href="fgplay.html">名場面・珍場面集</a>
+                                    <a href="faq.html">よくある質問 FAQ</a>
+                                    <a href="search.html">ページ内検索</a>
+                                    <a href="event.html">大会・イベント情報</a>
+                                    <a href="feedback.html">参加者インタビュー</a>
+                                    <a href="glossary.html">用語集</a>
+                                </div>
+                            </details>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -326,6 +345,35 @@
         </footer>
 
     </div>
+
+    <script>
+        const headerDropdowns = document.querySelectorAll('.header-dropdown');
+
+        headerDropdowns.forEach((dropdown) => {
+            dropdown.addEventListener('toggle', () => {
+                if (!dropdown.open) return;
+
+                headerDropdowns.forEach((otherDropdown) => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.open = false;
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            const clickedInsideDropdown = event.target.closest('.header-dropdown');
+
+            if (clickedInsideDropdown) {
+                return;
+            }
+
+            headerDropdowns.forEach((dropdown) => {
+                dropdown.open = false;
+            });
+        });
+    </script>
+
 </body>
 
 </html>
