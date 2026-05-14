@@ -424,7 +424,7 @@
             });
         });
 
-        document.addEventListener('click', (event) => {
+        document.addEventListener('pointerdown', (event) => {
             const clickedInsideDropdown = event.target.closest('.header-dropdown');
 
             if (clickedInsideDropdown) {
@@ -434,7 +434,7 @@
             headerDropdowns.forEach((dropdown) => {
                 dropdown.open = false;
             });
-        });
+        }, true);
     </script>
 
 </body>

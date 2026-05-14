@@ -64,7 +64,7 @@
                     <div class="event-lead-box">
                         <p class="event-lead-text">
                             このページはSBR2界隈が少しでも盛り上がれば良いなという考えから生まれた、執筆者(がいあっと)がTwitterやYouTubeで見かけた、主にオンライン上での大会情報やイベントを掲載しているシートです。<br />
-                            主にオンライン上での大会情報やイベントを掲載しているシートです。「自分も大会やイベントを主催しているので載せて欲しい」「ここ間違ってますよ」<br />
+                            「自分も大会やイベントを主催しているので載せて欲しい」「ここ間違ってますよ」<br />
                             という場合は執筆者Twitterまでリプライ若しくはDMをお願い致します！適宜追加していく予定。<br />
                             執筆者一人で情報を纏めるのには限界があるため、大会、イベント、定例会の情報をいただけると幸甚です！<br />
                         </p>
@@ -3656,7 +3656,7 @@
             });
         });
 
-        document.addEventListener('click', (event) => {
+        document.addEventListener('pointerdown', (event) => {
             const clickedInsideDropdown = event.target.closest('.header-dropdown');
 
             if (clickedInsideDropdown) {
@@ -3666,8 +3666,9 @@
             headerDropdowns.forEach((dropdown) => {
                 dropdown.open = false;
             });
-        });
+        }, true);
     </script>
+
 
 </body>
 
