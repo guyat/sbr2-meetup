@@ -3974,3 +3974,966 @@ html {
         font-size: 0.88rem;
     }
 }
+
+/* =========================
+   参加者インタビューページ
+========================= */
+.feedback-main {
+    padding-bottom: 80px;
+}
+
+.feedback-section {
+    margin-bottom: 40px;
+}
+
+.feedback-box {
+    padding: 48px 48px 44px;
+}
+
+.feedback-title {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+/* 説明文 */
+.feedback-lead-box {
+    max-width: 980px;
+    margin: 0 auto 30px;
+    padding: 24px 30px;
+    border-radius: 22px;
+    background:
+        linear-gradient(135deg,
+            rgba(245, 249, 255, 0.94),
+            rgba(232, 248, 255, 0.88),
+            rgba(255, 235, 244, 0.76));
+    border: 1px solid rgba(180, 205, 245, 0.66);
+    box-shadow:
+        0 8px 22px rgba(60, 90, 140, 0.12),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.58);
+}
+
+.feedback-lead-text {
+    margin: 0;
+    color: #26384f;
+    font-size: 1.02rem;
+    font-weight: 850;
+    line-height: 1.9;
+    text-align: center;
+}
+
+/* 一覧 */
+.feedback-interview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* インタビューカード */
+.feedback-interview-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 32px 32px;
+    border-radius: 24px;
+    background:
+        linear-gradient(135deg,
+            rgba(232, 242, 255, 0.90) 0%,
+            rgba(255, 235, 244, 0.82) 48%,
+            rgba(255, 248, 224, 0.84) 100%);
+    border: 2px solid rgba(120, 150, 220, 0.38);
+    box-shadow:
+        0 12px 28px rgba(60, 90, 160, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.48);
+}
+
+.feedback-interview-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 12px;
+    background: linear-gradient(180deg, #5f70e8, #46d6e8, #f28bb6, #ffd36a);
+}
+
+/* カード上部 */
+.feedback-card-header {
+    margin-bottom: 24px;
+    padding: 22px 24px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.78),
+            rgba(232, 242, 255, 0.72));
+    border: 1px solid rgba(120, 150, 220, 0.30);
+    box-shadow: 0 6px 16px rgba(70, 100, 180, 0.08);
+}
+
+.feedback-interview-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 10px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #5f70e8, #46a8e8);
+    font-size: 0.92rem;
+    font-weight: 950;
+    line-height: 1.3;
+    box-shadow: 0 4px 10px rgba(80, 100, 180, 0.18);
+}
+
+.feedback-interview-name {
+    margin: 0 0 8px;
+    color: #2f5fd0;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 950;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    text-shadow:
+        0 2px 0 rgba(255, 255, 255, 0.86),
+        0 5px 12px rgba(60, 90, 180, 0.18);
+}
+
+.feedback-interview-subtitle {
+    margin: 0;
+    color: #334155;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.8;
+}
+
+/* Q&A */
+.feedback-qa-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.feedback-qa-item {
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(150, 170, 230, 0.28);
+    box-shadow: 0 4px 12px rgba(70, 100, 180, 0.07);
+}
+
+.feedback-qa-final {
+    background:
+        linear-gradient(135deg,
+            rgba(255, 246, 220, 0.88),
+            rgba(255, 235, 244, 0.78));
+    border-color: rgba(240, 190, 80, 0.34);
+}
+
+/* 質問 */
+.feedback-question {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+    margin: 0 0 12px;
+}
+
+.feedback-question-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #7b49d8, #46a8e8);
+    font-size: 0.9rem;
+    font-weight: 950;
+    line-height: 1.2;
+}
+
+.feedback-question-text {
+    color: #26384f;
+    font-size: 1.05rem;
+    font-weight: 950;
+    line-height: 1.65;
+}
+
+/* 回答 */
+.feedback-answer {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+    margin: 0;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background:
+        linear-gradient(135deg,
+            rgba(232, 242, 255, 0.72),
+            rgba(255, 255, 255, 0.76));
+    border: 1px solid rgba(121, 162, 255, 0.24);
+}
+
+.feedback-answer-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #d85ca8, #ff8a80);
+    font-size: 0.86rem;
+    font-weight: 950;
+    line-height: 1.2;
+}
+
+.feedback-answer-text {
+    color: #334155;
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+/* 追加予定メモ */
+.feedback-note-box {
+    padding: 22px 24px;
+    border-radius: 22px;
+    background:
+        linear-gradient(135deg,
+            rgba(95, 112, 232, 0.92),
+            rgba(70, 168, 232, 0.88),
+            rgba(167, 131, 255, 0.90));
+    border: 2px solid rgba(255, 255, 255, 0.70);
+    box-shadow:
+        0 10px 24px rgba(60, 90, 180, 0.22),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+    text-align: center;
+}
+
+.feedback-note-title {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 950;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+.feedback-note-text {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.94);
+    font-size: 0.98rem;
+    font-weight: 850;
+    line-height: 1.8;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.20);
+}
+
+/* =========================
+   参加者インタビューページ タブレット
+========================= */
+@media (max-width: 1100px) {
+    .feedback-box {
+        padding: 36px 28px 36px;
+    }
+
+    .feedback-interview-card {
+        padding: 26px 24px 28px;
+    }
+}
+
+/* =========================
+   参加者インタビューページ スマホ
+========================= */
+@media (max-width: 600px) {
+    .feedback-box {
+        padding: 28px 16px 28px;
+    }
+
+    .feedback-title {
+        margin-bottom: 20px;
+    }
+
+    .feedback-lead-box {
+        padding: 16px 14px;
+        border-radius: 16px;
+        margin-bottom: 22px;
+    }
+
+    .feedback-lead-text {
+        text-align: left;
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+
+    .feedback-interview-card {
+        padding: 20px 14px 20px 20px;
+        border-radius: 20px;
+    }
+
+    .feedback-interview-card::before {
+        width: 8px;
+    }
+
+    .feedback-card-header {
+        margin-bottom: 18px;
+        padding: 16px 14px;
+        border-radius: 16px;
+    }
+
+    .feedback-interview-label {
+        font-size: 0.84rem;
+        padding: 6px 13px;
+    }
+
+    .feedback-interview-name {
+        font-size: 1.55rem;
+    }
+
+    .feedback-interview-subtitle {
+        font-size: 0.88rem;
+        line-height: 1.75;
+    }
+
+    .feedback-qa-list {
+        gap: 12px;
+    }
+
+    .feedback-qa-item {
+        padding: 15px 12px;
+        border-radius: 16px;
+    }
+
+    .feedback-question {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .feedback-question-number {
+        width: fit-content;
+        min-width: 42px;
+        font-size: 0.82rem;
+    }
+
+    .feedback-question-text {
+        font-size: 0.94rem;
+        line-height: 1.7;
+    }
+
+    .feedback-answer {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 12px 12px;
+    }
+
+    .feedback-answer-label {
+        width: fit-content;
+        min-width: 38px;
+        font-size: 0.8rem;
+    }
+
+    .feedback-answer-text {
+        font-size: 0.88rem;
+        line-height: 1.75;
+    }
+
+    .feedback-note-box {
+        padding: 18px 14px;
+        border-radius: 18px;
+    }
+
+    .feedback-note-title {
+        font-size: 1.08rem;
+    }
+
+    .feedback-note-text {
+        font-size: 0.88rem;
+        line-height: 1.75;
+    }
+}
+
+/* =========================
+   参加者インタビュー アコーディオン化
+========================= */
+
+/* details全体 */
+.feedback-interview-details {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    background:
+        linear-gradient(135deg,
+            rgba(232, 242, 255, 0.90) 0%,
+            rgba(255, 235, 244, 0.82) 48%,
+            rgba(255, 248, 224, 0.84) 100%);
+    border: 2px solid rgba(120, 150, 220, 0.38);
+    box-shadow:
+        0 12px 28px rgba(60, 90, 160, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.48);
+}
+
+.feedback-interview-details::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 12px;
+    background: linear-gradient(180deg, #5f70e8, #46d6e8, #f28bb6, #ffd36a);
+}
+
+/* summary見出し */
+.feedback-interview-summary {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+    padding: 24px 30px 24px 36px;
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.78),
+            rgba(232, 242, 255, 0.72));
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.feedback-interview-summary::-webkit-details-marker {
+    display: none;
+}
+
+.feedback-interview-summary:hover {
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.88),
+            rgba(232, 242, 255, 0.82),
+            rgba(255, 235, 244, 0.72));
+}
+
+/* 開閉マーク */
+.feedback-interview-summary::after {
+    content: "＋";
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: linear-gradient(135deg, #5f70e8, #46a8e8);
+    font-size: 1.25rem;
+    font-weight: 950;
+    line-height: 1;
+    box-shadow: 0 4px 10px rgba(80, 100, 180, 0.18);
+}
+
+.feedback-interview-details[open] .feedback-interview-summary::after {
+    content: "－";
+    background: linear-gradient(135deg, #d85ca8, #ff8a80);
+}
+
+/* summary内の文字 */
+.feedback-summary-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    padding: 7px 16px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #5f70e8, #46a8e8);
+    font-size: 0.92rem;
+    font-weight: 950;
+    line-height: 1.3;
+    box-shadow: 0 4px 10px rgba(80, 100, 180, 0.18);
+}
+
+.feedback-summary-name {
+    padding-right: 44px;
+    color: #2f5fd0;
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+    font-weight: 950;
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-shadow:
+        0 2px 0 rgba(255, 255, 255, 0.86),
+        0 5px 12px rgba(60, 90, 180, 0.18);
+}
+
+/* アコーディオン内では既存カードの外枠を消して、中身用にする */
+.feedback-interview-details .feedback-interview-card {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 26px 30px 30px 36px;
+}
+
+.feedback-interview-details .feedback-interview-card::before {
+    display: none;
+}
+
+/* 旧ヘッダーは使わなくなるので非表示 */
+.feedback-interview-details .feedback-card-header {
+    display: none;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .feedback-interview-details {
+        border-radius: 20px;
+    }
+
+    .feedback-interview-details::before {
+        width: 8px;
+    }
+
+    .feedback-interview-summary {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 18px 54px 18px 20px;
+    }
+
+    .feedback-interview-summary::after {
+        right: 14px;
+        width: 30px;
+        height: 30px;
+        font-size: 1.1rem;
+    }
+
+    .feedback-summary-label {
+        font-size: 0.84rem;
+        padding: 6px 13px;
+    }
+
+    .feedback-summary-name {
+        padding-right: 0;
+        font-size: 1.42rem;
+    }
+
+    .feedback-interview-details .feedback-interview-card {
+        padding: 18px 12px 18px 20px;
+    }
+}
+
+/* =========================
+   誘爆技講座：手動再生プレビュー
+========================= */
+.combo-preview-frame {
+    position: relative;
+}
+
+.combo-preview-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.combo-preview-button .combo-thumbnail {
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.combo-preview-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 18, 28, 0.28);
+    transition: background 0.25s ease;
+}
+
+.combo-preview-button:hover .combo-thumbnail {
+    transform: scale(1.02);
+    opacity: 0.94;
+}
+
+.combo-preview-button:hover::after {
+    background: rgba(10, 18, 28, 0.38);
+}
+
+.combo-preview-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    width: 76px;
+    height: 76px;
+    border-radius: 999px;
+    background:
+        linear-gradient(135deg,
+            rgba(216, 92, 168, 0.96),
+            rgba(255, 138, 128, 0.96));
+    border: 3px solid rgba(255, 255, 255, 0.86);
+    box-shadow:
+        0 10px 24px rgba(60, 40, 100, 0.32),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+    transform: translate(-50%, -50%);
+}
+
+.combo-preview-play::before {
+    content: "";
+    position: absolute;
+    left: 31px;
+    top: 23px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 22px solid #ffffff;
+}
+
+.combo-preview-text {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    z-index: 2;
+    transform: translateX(-50%);
+    padding: 7px 16px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(15, 23, 32, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1.3;
+    white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+
+.combo-preview-video {
+    background: #000000;
+}
+
+/* スマホ調整 */
+@media (max-width: 600px) {
+    .combo-preview-button {
+        border-radius: 14px;
+    }
+
+    .combo-preview-play {
+        width: 60px;
+        height: 60px;
+    }
+
+    .combo-preview-play::before {
+        left: 25px;
+        top: 18px;
+        border-top-width: 12px;
+        border-bottom-width: 12px;
+        border-left-width: 18px;
+    }
+
+    .combo-preview-text {
+        bottom: 12px;
+        padding: 6px 13px;
+        font-size: 0.78rem;
+    }
+}
+
+/* =========================
+   誘爆技講座：手動再生プレビュー 修正版
+   - hidden時に確実に非表示
+   - ホバー拡大なし
+========================= */
+
+/* hidden属性をCSSより優先して確実に非表示にする */
+.combo-preview-button[hidden],
+.combo-preview-video[hidden] {
+    display: none !important;
+}
+
+/* サムネボタンと動画を同じ枠内で1つだけ表示する */
+.combo-preview-frame {
+    position: relative;
+    overflow: hidden;
+}
+
+.combo-preview-button,
+.combo-preview-video {
+    width: 100%;
+}
+
+/* ホバー時に拡大・移動させない */
+.combo-preview-button .combo-thumbnail,
+.combo-preview-button:hover .combo-thumbnail {
+    transform: none;
+    opacity: 1;
+}
+
+/* ホバー時も暗さだけ少し変える。拡大はしない */
+.combo-preview-button::after {
+    background: rgba(10, 18, 28, 0.24);
+}
+
+.combo-preview-button:hover::after {
+    background: rgba(10, 18, 28, 0.34);
+}
+
+/* 動画表示時も角丸を維持 */
+.combo-preview-video {
+    display: block;
+    border-radius: 18px;
+    background: #000000;
+}
+
+@media (max-width: 600px) {
+    .combo-preview-video {
+        border-radius: 14px;
+    }
+}
+
+/* =========================
+   誘爆技講座：手動再生プレビュー 文字ボタン版
+   - 中央再生ボタンなし
+   - ホバー拡大なし
+   - hidden時に確実に非表示
+========================= */
+
+/* hidden属性をCSSより優先して確実に非表示にする */
+.combo-preview-button[hidden],
+.combo-preview-video[hidden] {
+    display: none !important;
+}
+
+/* プレビュー枠 */
+.combo-preview-frame {
+    position: relative;
+    overflow: hidden;
+}
+
+/* サムネ全体をクリック / タップ可能にする */
+.combo-preview-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+/* ホバー拡大・移動を完全に無効化 */
+.combo-preview-button .combo-thumbnail,
+.combo-preview-button:hover .combo-thumbnail {
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* 画像全体を暗くするオーバーレイは使わない */
+.combo-preview-button::after,
+.combo-preview-button:hover::after {
+    display: none !important;
+}
+
+/* 中央の丸い再生ボタンは使わない */
+.combo-preview-play {
+    display: none !important;
+}
+
+/* 下部の再生テキストだけ表示 */
+.combo-preview-text {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    z-index: 2;
+    transform: translateX(-50%);
+    padding: 8px 18px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(15, 23, 32, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1.3;
+    white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.30);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.20);
+}
+
+/* ホバー時は色だけ少し変える。動かさない */
+.combo-preview-button:hover .combo-preview-text {
+    background: rgba(216, 92, 168, 0.90);
+}
+
+/* 動画表示時 */
+.combo-preview-video {
+    display: block;
+    width: 100%;
+    border-radius: 18px;
+    background: #000000;
+}
+
+/* スマホ調整 */
+@media (max-width: 600px) {
+
+    .combo-preview-button,
+    .combo-preview-video {
+        border-radius: 14px;
+    }
+
+    .combo-preview-text {
+        bottom: 10px;
+        padding: 7px 13px;
+        font-size: 0.76rem;
+    }
+}
+
+/* =========================
+   誘爆技講座：プレビュー動画の縦横比を維持
+   - video表示時に16:9強制で切り抜かれないようにする
+========================= */
+.combo-preview-video {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+
+/* =========================
+   誘爆技講座：プレビュー動画を静止画サムネと同じ枠サイズに揃える
+========================= */
+
+/* サムネ表示時と動画再生時で枠の大きさを変えない */
+.combo-preview-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #000000;
+}
+
+/* ボタン側も枠いっぱいに固定 */
+.combo-preview-button {
+    width: 100%;
+    height: 100%;
+}
+
+/* 静止画サムネ */
+.combo-preview-button .combo-thumbnail {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+}
+
+/* 動画も静止画サムネと同じ16:9枠に収める */
+.combo-preview-video {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    border-radius: 18px;
+    background: #000000;
+}
+
+/* hidden時は確実に消す */
+.combo-preview-button[hidden],
+.combo-preview-video[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+
+    .combo-preview-frame,
+    .combo-preview-video {
+        border-radius: 14px;
+    }
+}
+
+/* =========================
+   誘爆技講座：プレビュー枠を16:9固定
+========================= */
+.combo-preview-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #000000;
+}
+
+.combo-preview-button {
+    width: 100%;
+    height: 100%;
+}
+
+.combo-preview-button .combo-thumbnail,
+.combo-preview-video {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+}
+
+.combo-preview-button[hidden],
+.combo-preview-video[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+
+    .combo-preview-frame,
+    .combo-preview-video {
+        border-radius: 14px;
+    }
+}
+
+/* =========================
+   誘爆技講座：プレビュー動画を余黒あり・見切れなしに戻す
+========================= */
+
+/* 静止画サムネと動画の表示枠を同じ16:9に固定 */
+.combo-preview-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #000000;
+}
+
+/* サムネ側 */
+.combo-preview-button {
+    width: 100%;
+    height: 100%;
+}
+
+/* 静止画サムネは枠いっぱい */
+.combo-preview-button .combo-thumbnail {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+}
+
+/* 動画は見切れないように contain */
+.combo-preview-video {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    border-radius: 18px;
+    background: #000000;
+}
+
+/* hidden時は確実に非表示 */
+.combo-preview-button[hidden],
+.combo-preview-video[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+
+    .combo-preview-frame,
+    .combo-preview-video {
+        border-radius: 14px;
+    }
+}
